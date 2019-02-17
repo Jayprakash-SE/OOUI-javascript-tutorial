@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>
+            OOUI test Project
+        </title>
+        <!-- jQuery -->
+        <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <!-- OOjs -->
+        <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/oojs/2.2.2/oojs.jquery.min.js"></script>
+
+        <!-- OOUI -->
+        <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/oojs-ui/0.30.0/oojs-ui.min.js"></script>
+        <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/oojs-ui/0.30.0/oojs-ui-wikimediaui.min.js"></script>
+        <link rel="stylesheet" href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/oojs-ui/0.30.0/oojs-ui-wikimediaui.min.css" />
+        <script>
+        $( document ).ready( function() {
+            var textbox = new OO.ui.TextInputWidget( {
+                placeholder: "You can write here your name",
+                required: true
+            } )
+            var button = new OO.ui.ButtonWidget( {
+                title: 'I am a button',
+                icon: 'lightbulb',
+                flags: [ 'destructive' ],
+                label: 'Click me!'
+            } )
+            button.$button.click( function() {
+                console.log( textbox.isRequired( ) )
+                text = textbox.getValue()
+                if ( text === '' ){
+                    alert( "The textbox is empty." )
+                }
+            });
+            $( 'body' ).append( textbox.$element , button.$element )
+        });
+        </script>
+    </head>
+</html>
